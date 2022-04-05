@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.position1 {
+    top: 22%;
+    width: 70%;
+    transform: translate(21%,0);
+}
+.position2 {
+    top: 7%;
+    width: 62%;
+    transform: translate(18%,0);
+    left: 7%;
+}
