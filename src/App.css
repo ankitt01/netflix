@@ -9,6 +9,20 @@
         flex-direction: row-reverse;
     }
 }
+.content {
+    padding: 20px;
+    opacity: 0;
+    max-height: 0;
+    display: none;
+    transition: all 0.5s cubic-bezier(0,1,0,1);
+}
+.content.show {
+    display: block;
+    opacity: 1;
+    height: auto;
+    max-height: 9999px;
+    transition: all 0.5s cubic-bezier(0,1,0,1);
+}
 .position1 {
     top: 22%;
     width: 70%;
@@ -22,4 +36,5 @@
 }
 .grid p {
     margin-bottom: 10px;
+    cursor: pointer;
 }

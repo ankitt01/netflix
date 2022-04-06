@@ -24,7 +24,7 @@ const Jumbotron = ({item}) => {
                   </div>
                 )}
               </div>
-              <video className={`absolute ${item.position} z-99`} src={item.video} autoPlay muted loop playsinline/>
+              <video className={`absolute ${item.position} z-99`} src={item.video} autoPlay muted loop/>
             </div>
       </div>
     </div>
