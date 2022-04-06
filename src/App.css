@@ -3,6 +3,12 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+@media only screen and (min-width: 1024px) {
+    .flipped {
+        flex-direction: row-reverse;
+    }
+}
 .position1 {
     top: 22%;
     width: 70%;
@@ -13,4 +19,7 @@
     width: 62%;
     transform: translate(18%,0);
     left: 7%;
+}
+.grid p {
+    margin-bottom: 10px;
 }
