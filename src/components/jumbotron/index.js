@@ -3,7 +3,7 @@ import React from 'react'
 const Jumbotron = ({item}) => {
   return (
     <div className='border-y-4 border-[#222]'>
-      <div className={`flex flex-col lg:flex-row ${item.direction} items-center justify-between max-w-[1100px] m-auto w-full bg-black py-12 lg:py-20 `}>
+      <div className={`flex flex-col lg:flex-row ${item.direction} items-center justify-between max-w-[1100px] m-auto w-full bg-black py-12 `}>
           <div className='text-gray-50 text-center lg:text-left px-4 lg:p-8 max-w-[600px] m-auto'>
               <h1 className='text-3xl md:text-4xl lg:text-5xl font-bold '>{item.title}</h1>
               <p className=' md:text-lg lg:text-xl my-4'>{item.subTitle}</p>
