@@ -12,7 +12,7 @@ const Jumbotron = ({item}) => {
               <div className='relative'>
                 <img className='w-full' src={item.image} alt={item.alt} />
                 {item.animation && (
-                  <div className='absolute left-[19%] md:left-[8%] h-[70px] lg:h-[100px] top-[67%] text-white flex gap-2 w-3/5 md:w-4/5 items-center justify-center bg-black border-2 border-gray-700 rounded-3xl px-4 py-2'>
+                  <div className='absolute left-[19%] md:left-[13%] lg:md-[12%] h-[70px] lg:h-[100px] top-[67%] text-white flex gap-2 w-3/5 md:w-[68%] lg:w-3/4 items-center justify-center bg-black border-2 border-gray-700 rounded-3xl px-4 py-2'>
                     <img className='h-full' src={item['animation-image']} alt="animation" />  
                     <div className="flex-1 ml-2">
                       <h1 className="text-sm lg:text-xl font-bold flex-1">Stranger Things</h1>
