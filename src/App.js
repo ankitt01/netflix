@@ -1,18 +1,26 @@
 import './App.css';
-import Jumbotron from './components/jumbotron';
-import jumboData from "../src/fixtures/jumbo.json"
-import Footer from './components/footer';
-import Accordian from './components/accordian';
+import {Home, Browse, Signin, Signup} from './pages';
+
+import * as ROUTES from './constants/routes';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className='bg-black'>
-      {jumboData.map(item => (
-        <Jumbotron item={item} key={item.id} />
-      ))}
-      <Accordian />
-      <Footer />
-    </div>
+    <Router>
+      <Route exact path="/signup">
+        <Signup />      
+      </Route>
+      <Route exact path="/signin">
+        <Signin />      
+      </Route>
+      <Route exact path="/browse">
+        <Browse />      
+      </Route>
+      <Route exact path={ROUTES.HOME}>
+        <Home />
+      </Route>
+    </Router>
   );
 }
 
