@@ -40,3 +40,6 @@ body {
     margin-bottom: 10px;
     cursor: pointer;
 }
+.header {
+    background-image: url('./components/header/homeBg.jpg');
+}

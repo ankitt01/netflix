@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import faqData from '../../fixtures/faqs.json'
+import OptForm from '../opt-form'
 
 
 const Accordian = () => {
@@ -28,12 +29,8 @@ const Accordian = () => {
                 </div>
             )
         })}
-        <div className=' max-w-[800px] text-center mx-auto px-12 md:px-20 mt-12'>
-            <p className='font-bold text-lg lg:text-xl'>Ready to watch? Enter your email to create or restart your membership.</p>
-            <div className='flex flex-col md:flex-row items-center md:items-end'>
-                <input type="text" placeholder='Email address' className='px-4 py-2 xl:py-4 w-full mt-6' />
-                <button className='bg-[#e50914] min-w-[150px] max-w-[200px] px-4 py-2 mt-4 xl:py-4 md:ml-1'>Get Started</button>
-            </div>
+        <div className='mt-20'>
+            <OptForm />
         </div>
     </div>
   )
