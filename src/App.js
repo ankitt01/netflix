@@ -2,7 +2,7 @@ import './App.css';
 import {Home, Browse, Signin, Signup} from './pages';
 
 import * as ROUTES from './constants/routes';
-import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 
 function App() {
