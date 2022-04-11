@@ -18,7 +18,7 @@ function App() {
         <Browse />      
       </Route>
       <Route exact path={ROUTES.HOME}>
-        <Home />
+        <Home to={ROUTES.HOME}/>
       </Route>
     </Router>
   );
