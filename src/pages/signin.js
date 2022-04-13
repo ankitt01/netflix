@@ -8,30 +8,40 @@ import logo from './utilities/logo.svg'
 const Signin = () => {
   const inputValues = {email: "", password: ""};
   const [formValues, setFormValues] = useState(inputValues)
-  const [error, setError] = useState({email:"", password: ""});
+  const [error, setError] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
 
   function validate(values) {
-    const errors = {email: "Email required", password: "Password required"};
-    const regex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-    if(!values.email){
-      setError({email: "Email Required"})
-      console.log(error.email)
+    const errors = {}
+    const regex = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i
+
+    if(!values.email) {
+      errors.email = "Please enter a valid email address or phone number.";
     }
-    if(!values.password){
-      setError({password: "Password Required"})
-      console.log(error.password)
+    if(!values.password || values.password.length < 4) {
+      errors.password = "Your password must contain between 4 and 60 characters.";
     }
+    return errors;
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    validate(formValues);
+    setError(validate(formValues));
+    setIsSubmit(true);
   }
 
   function handleChange(e) {
-    const {key,val} = e.target;
-    setFormValues({...formValues, [key]: val});
+    const {name, value} = e.target;
+    setFormValues({...formValues, [name]: value});
   }
+
+  useEffect(() => {
+    console.log(error)
+    if(Object.keys(error).length === 0 && isSubmit) {
+      console.log(formValues)
+    }
+
+  },[error])
 
   return (
     <>
@@ -44,11 +54,12 @@ const Signin = () => {
 
             <form action="" className='text-gray-50 flex flex-col px-6 sm:px-16 py-12' onSubmit={(e) => handleSubmit(e)}>
               <h1 className='text-3xl font-bold mb-8'>Sign In</h1>
-              <input onChange={handleChange} type="text" placeholder='Email or phone number' className='mb-4 font-lg outline-none px-6 py-4 rounded bg-[#333]' />
-              {error.email && <p>{error.email}</p>}
-              <input onChange={handleChange} type="password" placeholder='Password' className='mb-8 outline-none px-6 py-4 rounded bg-[#333]' />
-              {error.password && <p>{error.password}</p>}
-              <button type='submit' className='bg-[#e50914] text-gray-50 py-4 px-6 rounded font-bold mb-2'>Sign In</button>
+              <input onChange={handleChange} type="text" name="email" value={formValues.email} placeholder='Email or phone number' className=' font-lg outline-none px-6 py-4 rounded bg-[#333]' />
+              {error.email && <p className='text-xs text-red-500'>{error.email}</p>}
+              <input onChange={handleChange} type="password" name="password" value={formValues.password} placeholder='Password' className='mt-4 outline-none px-6 py-4 rounded bg-[#333]' />
+              {error.password && <p className='text-xs text-red-500'>{error.password}</p>}
+              <button type='submit' className='bg-[#e50914] text-gray-50 py-4 px-6 rounded font-bold mt-8 mb-2'>Sign In</button>
+
               <div className='flex justify-between'>
                 <div className='text-gray-400'>
                   <input type="checkbox" name="remember" id="remember" className='mr-2 p-2' checked/>
