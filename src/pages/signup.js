@@ -32,7 +32,7 @@ const Signup = () => {
         history.push(ROUTES.BROWSE)
       })
     }).catch((err) => {
-      console.log(err.message)
+      setAuthError(err.message)
       setFormValues(inputValues);
     })
   }
@@ -43,8 +43,8 @@ const Signup = () => {
   return (
     <>
       <Header to={ROUTES.HOME}>
-        <div className='flex justify-between py-8 px-20'>
-              <Link to={ROUTES.HOME}><img src={logo} alt="logo" className='w-40'/></Link>
+        <div className='flex justify-between py-8 px-8 md:px-20'>
+              <Link to={ROUTES.HOME}><img src={logo} alt="logo" className='w-24 md:w-40'/></Link>
           </div>
           <div className='grid place-items-center pb-14'>
             <div className='w-full sm:min-h-[660px] bg-[rgba(0,0,0,.65)] sm:w-[450px]'>
@@ -56,7 +56,7 @@ const Signup = () => {
                 {!authError && <p className='text-xs text-red-500'>{error.email}</p>}
                 <input onChange={handleChange} type="text" name="email" value={formValues.email} placeholder='Email or phone number' className='mt-2 font-lg outline-none px-6 py-4 rounded bg-[#333]' />
                 {!authError && <p className='text-xs text-red-500'>{error.email}</p>}
-                <input onChange={handleChange} type="password" name="password" value={formValues.password} placeholder='Password' className='mt-2 outline-none px-6 py-4 rounded bg-[#333]' />
+                <input onChange={handleChange} type="password" name="password" autoComplete="off" value={formValues.password} placeholder='Password' className='mt-2 outline-none px-6 py-4 rounded bg-[#333]' />
                 {!authError && <p className='text-xs text-red-500'>{error.password}</p>}
                 <button type='submit' className='bg-[#e50914] text-gray-50 py-4 px-6 rounded font-bold mt-8 mb-2'>Sign Up</button>
 

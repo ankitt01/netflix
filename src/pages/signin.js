@@ -75,7 +75,7 @@ const Signin = () => {
               {authError ? <p className='text-yellow-500'>{authError.message}</p> : ""}
               <input onChange={handleChange} type="text" name="email" value={formValues.email} placeholder='Email or phone number' className='mt-2 font-lg outline-none px-6 py-4 rounded bg-[#333]' />
               {!authError && <p className='text-xs text-red-500'>{error.email}</p>}
-              <input onChange={handleChange} type="password" name="password" value={formValues.password} placeholder='Password' className='mt-4 outline-none px-6 py-4 rounded bg-[#333]' />
+              <input onChange={handleChange} type="password" name="password" value={formValues.password} autoComplete="off" placeholder='Password' className='mt-4 outline-none px-6 py-4 rounded bg-[#333]' />
               {!authError && <p className='text-xs text-red-500'>{error.password}</p>}
               <button type='submit' className='bg-[#e50914] text-gray-50 py-4 px-6 rounded font-bold mt-8 mb-2'>Sign In</button>
 
