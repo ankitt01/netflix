@@ -3,7 +3,6 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        // 'headerBg': "url('/images/misc/homeBg.jpg')"
       },
   },
     plugins: [],

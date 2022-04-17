@@ -1,7 +1,7 @@
 
-const Header = ({to,children}) => {
+const Header = ({bg, to, children}) => {
   return (
-    <div className="header"> 
+    <div className={`${bg ? "header" : ""} `}> 
         {children}
     </div>
   )
