@@ -43,3 +43,15 @@ body {
 .header {
     background-image: url('./components/header/homeBg.jpg');
 }
+.browseHeader {
+    background-image: url('/public/images/misc/joker1.jpg');
+    background-position: 5% 5%;
+    background-size: cover;
+}
+
+@media (max-width: 415px) {
+    .browseHeader {
+        /* display: none; */
+        /* background-image: none; */
+    }
+}
