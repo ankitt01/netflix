@@ -7,12 +7,16 @@ import { Link } from 'react-router-dom';
 import logo from '../pages/utilities/logo.svg'
 import Header from '../components/header';
 import HeaderSearch from './HeaderSearch';
+import Card from '../components/card';
 
 
 const BrowseContainer = ({slides}) => {
   const [profile, setProfile] = useState({});
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
+
+  const [slideRows, setSlideRows] = useState([])
+  const [category, setCategory] = useState('series')
 
   const {firebase} = useContext(FirebaseContext)
   const user = firebase.auth().currentUser || {};
@@ -23,18 +27,23 @@ const BrowseContainer = ({slides}) => {
     },3000)
   },[profile.displayName])
 
+  useEffect(() => {
+    setSlideRows(slides[category])
+    console.log(category)
+  },[slides, category])
+
   return profile.displayName ? 
   <>
     <Header>
       <div className='flex justify-start items-center py-8 px-8 sm:hidden'>
-        <Link to={ROUTES.HOME}><img src={logo} alt="logo" className='w-20 mr-4'/></Link>
+        <Link to={ROUTES.HOME}><img src={logo} alt="logo" className='w-14 sm:w-20 mr-4'/></Link>
         <div className='text-white grow flex justify-between items-center'>
           <div className='flex gap-4'>
-            <Link>Series</Link>
-            <Link>Films</Link>
+            <p onClick={() => setCategory('series')} className={category === 'series' ? 'font-bold cursor-pointer' : ' cursor-pointer'}>Series</p>
+            <p onClick={() => setCategory('films')} className={category === 'films' ? 'font-bold cursor-pointer ' : ' cursor-pointer'}>Films</p>
           </div>
           <div className='flex gap-2 items-center'>
-            <img src={`/images/users/${user.photoURL}.png`} alt="user" className='w-10 cursor-pointer' />
+            <img src={`/images/users/${user.photoURL}.png`} alt="user" className='w-6 sm:w-10 cursor-pointer' />
             <p className='hidden sm:block'>{user.displayName}</p>
             <p className='cursor-pointer' onClick={() => {firebase.auth().signOut()}}>Sign Out</p>
           </div>
@@ -47,8 +56,8 @@ const BrowseContainer = ({slides}) => {
         <Link to={ROUTES.HOME}><img src={logo} alt="logo" className='w-20 mr-6'/></Link>
         <div className='text-white grow flex justify-between items-center'>
           <div className='flex gap-4'>
-            <Link>Series</Link>
-            <Link>Films</Link>
+          <p onClick={() => setCategory('series')} className={category === 'series' ? 'font-bold cursor-pointer' : ' cursor-pointer'}>Series</p>
+            <p onClick={() => setCategory('films')} className={category === 'films' ? 'font-bold cursor-pointer' : ' cursor-pointer'}>Films</p>
           </div>
           <div className='flex gap-4 items-center'>
             <HeaderSearch searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
@@ -65,6 +74,9 @@ const BrowseContainer = ({slides}) => {
         <button className='bg-white text-black font-bold max-w-[150px] rounded px-4 py-2 mt-8'>Play Now</button>
       </div>
     </BrowseHeader>
+    <Card>
+      
+    </Card>
   </>
   : <SelectProfileContainer user={user} setProfile = {setProfile} />
 }

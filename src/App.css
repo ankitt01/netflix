@@ -45,13 +45,13 @@ body {
 }
 .browseHeader {
     background-image: url('/public/images/misc/joker1.jpg');
-    background-position: 5% 5%;
+    background-position: 10% 10%;
     background-size: cover;
 }
 
 @media (max-width: 415px) {
     .browseHeader {
-        /* display: none; */
-        /* background-image: none; */
+        display: none;
+        background-image: none;
     }
 }

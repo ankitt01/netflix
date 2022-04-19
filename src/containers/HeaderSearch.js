@@ -3,7 +3,6 @@ import {useState} from 'react'
 
 const HeaderSearch = ({searchTerm, setSearchTerm}) => {
     const [searchActive, setSearchActive] = useState(false);
-    console.log(searchActive) 
   return (
     <div className='lg:flex items-center hidden lg:block'>
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2 cursor-pointer" onClick={() => setSearchActive(searchActive => !searchActive)} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
