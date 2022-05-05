@@ -49,9 +49,9 @@ body {
     background-size: cover;
 }
 
-@media (max-width: 415px) {
+/* @media (max-width: 415px) {
     .browseHeader {
-        display: none;
-        background-image: none;
+        /* display: none; */
+        /* background-image: none;
     }
-}
+} */
