@@ -8,6 +8,9 @@ import logo from '../pages/utilities/logo.svg'
 import Header from '../components/header';
 import HeaderSearch from './HeaderSearch';
 import Card from '../components/card';
+import Item from './Item';
+import Feature from './Feature'
+
 
 
 const BrowseContainer = ({slides}) => {
@@ -29,7 +32,6 @@ const BrowseContainer = ({slides}) => {
 
   useEffect(() => {
     setSlideRows(slides[category])
-    console.log(category)
   },[slides, category])
 
   return profile.displayName ? 
@@ -75,7 +77,26 @@ const BrowseContainer = ({slides}) => {
       </div>
     </BrowseHeader>
     <Card>
-      
+      {slideRows.map((slideItem) => (
+        <Card key={`${category}-${slideItem.title.toLowerCase()}`}> 
+          <div>
+          <div>
+            <h1 className='text-gray-50 text-md md:text-xl my-2 md:my-4 mx-2'>{slideItem.title}</h1>
+            <div className='flex gap-4'>
+              {slideItem.data.map((item) => (
+                <Item key={item.docId} category={category} item={item} />
+              ))}
+            </div>
+            {/* <Feature category={category}>
+              <div>
+                <button></button>
+                <video src={`/videos/bunny.mp4`}></video>
+              </div>
+            </Feature> */}
+          </div>
+        </div>
+        </Card>
+      ))}
     </Card>
   </>
   : <SelectProfileContainer user={user} setProfile = {setProfile} />
