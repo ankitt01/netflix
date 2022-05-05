@@ -67,6 +67,11 @@ const Signin = () => {
       <div className='flex justify-between py-8 px-20'>
             <Link to={ROUTES.HOME}><img src={logo} alt="logo" className='w-40'/></Link>
         </div>
+        <div className='text-gray-700 px-6 text-xs'>
+          <p>Demo credentials:</p>
+          <p>Email: demouser@gmail.com</p>
+          <p>Pass: demopass</p>
+        </div>
         <div className='grid place-items-center pb-14'>
           <div className='w-full sm:min-h-[660px] bg-[rgba(0,0,0,.65)] sm:w-[450px]'>
 
